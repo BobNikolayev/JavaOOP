@@ -14,24 +14,25 @@ public class Main {
 
 //        ageFilter(20,employeesArr);
 
-        salaryFilter(4000,6000,employeesArr);
+//        salaryFilter(4000,6000,employeesArr);
+        ageFilter(60,employeesArr);
 
 
     }
 
-    public static void ageFilter(int minimalRange, Employee employeeArr[]) {
-        for (int i = 0; i < employeeArr.length; i++) {
-            if (employeeArr[i].getAge() > minimalRange) {
-                employeeArr[i].employeeInfo();
+    public static void ageFilter(int minimalRange, Employee[] employeeArr) {
+        for (Employee employee : employeeArr) {
+            if (employee.getAge() > minimalRange) {
+                employee.employeeInfo();
             }
 
         }
     }
 
-    public static void salaryFilter(int minSalary, int maxSalary,Employee employees[]) {
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i].getSalary() >= minSalary && employees[i].getSalary() <= maxSalary){
-                employees[i].employeeInfo();
+    public static void salaryFilter(int minSalary, int maxSalary, Employee[] employees) {
+        for (Employee employee : employees) {
+            if (employee.getSalary() >= minSalary && employee.getSalary() <= maxSalary) {
+                employee.employeeInfo();
             }
 
         }

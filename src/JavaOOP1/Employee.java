@@ -2,7 +2,7 @@ package JavaOOP1;
 
 public class Employee {
 
-    private String name;
+    private  String name;
     private String jobTitle;
     private String eMail;
     private String phoneNumber;
