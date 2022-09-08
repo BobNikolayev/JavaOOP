@@ -1,56 +1,54 @@
 package JavaOOP2.Animals;
 
-import java.sql.SQLOutput;
-
-public abstract class Animals {
+public  class Animals {
 
     protected String name;
-    protected int runRange;
-    protected int swimRange;
+    protected int maxRunRange;
+    protected int maxSwimRange;
+
+    private static int animalCounter;
+
 
     public Animals(String name, int runRange, int swimRange) {
         this.name = name;
-        this.runRange = runRange;
-        this.swimRange = swimRange;
+        this.maxRunRange = runRange;
+        this.maxSwimRange = swimRange;
+        animalCounter++;
+    }
+
+    public static int getAnimalCounter() {
+        return animalCounter;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getRunRange() {
-        return runRange;
+    public int getMaxRunRange() {
+        return maxRunRange;
     }
 
-    public int getSwimRange() {
-        return swimRange;
+    public int getMaxSwimRange() {
+        return maxSwimRange;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void swim(int swimRange){
+        if (getMaxSwimRange() >= swimRange){
+            System.out.println(getName() + " swim " + swimRange + "m");
+        }if (getMaxSwimRange() == 0){
+            System.out.println(getName() + " can not swim...");
+            return;
+        }if (getMaxSwimRange() < swimRange){
+            System.out.println(getName() + " can not swim so far...");
+        }
     }
 
-    public void setRunRange(int runRange) {
-        this.runRange = runRange;
+    public void run(int runRange){
+        if (getMaxRunRange() >= runRange){
+            System.out.println(getName() + " run " + runRange + "m");
+        }else{
+            System.out.println(getName() + " can not run so far...");
+        }
     }
-
-
-
-    public void setSwimRange(int swimRange) {
-        this.swimRange = swimRange;
-    }
-
-    public abstract void swim();
-
-    public abstract void run();
-
-//    public void swimming(){
-//        System.out.println(getName() + "Swimming " + getSwimRange() + "m");
-//    }
-//
-//    public void running(){
-//        System.out.println(getName() + "running " + getRunRange() + "m");
-//    }
-
 
 }

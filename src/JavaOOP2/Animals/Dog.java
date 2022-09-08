@@ -2,21 +2,15 @@ package JavaOOP2.Animals;
 
 public class Dog extends Animals {
 
-    public Dog(String name, int runRange, int swimRange) {
-        super(name, runRange, swimRange);
+    private static int animalCounter;
+
+    public Dog(String name) {
+        super(name,  500,10);
+        animalCounter++;
     }
 
-    @Override
-    public void swim() {
-        setSwimRange((int) (Math.random() * 500));
-        System.out.println(getName() + " swimming " + getSwimRange() + "m");
+    public static int getDogCounter() {
+        return animalCounter;
     }
-
-    @Override
-    public void run() {
-        setRunRange((int) (Math.random() * 10));
-        System.out.println(getName() +  " running " + getRunRange() + "m");
-    }
-
 }
 
