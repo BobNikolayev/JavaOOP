@@ -1,6 +1,7 @@
 package CalculatorSwing;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -27,6 +28,25 @@ public class Window extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         setTitle("Calculator");
+
+        Font font = new Font("Arial",NORMAL,30);
+
+        JTextArea textArea = new JTextArea();
+        JTextArea textArea1 = new JTextArea();
+
+        textArea.setFont(font);
+        textArea1.setFont(font);
+
+        textArea.setBounds(10,10,760,30 );
+        textArea1.setBounds(10,50,760,30);
+        add(textArea);
+        add(textArea1);
+
+        textArea.setFocusable(false);
+        textArea1.setFocusable(false);
+
+        textArea.setText("");
+        textArea1.setText("");
 
         setLayout(null);
 
@@ -62,6 +82,7 @@ public class Window extends JFrame {
 
         for (int i = 0; i < buttons1.length; i++) {
             buttons1[i].setBounds(x,y,180,100);
+            buttons1[i].setFont(font);
             add(buttons1[i]);
             x += 190;
         }
@@ -70,6 +91,7 @@ public class Window extends JFrame {
 
         for (int i = 0; i < buttons2.length; i++) {
             buttons2[i].setBounds(x,y,180,100);
+            buttons2[i].setFont(font);
             add(buttons2[i]);
             x += 190;
         }
@@ -79,6 +101,7 @@ public class Window extends JFrame {
 
         for (int i = 0; i < buttons3.length; i++) {
             buttons3[i].setBounds(x,y,180,100);
+            buttons3[i].setFont(font);
             add(buttons3[i]);
             x += 190;
         }
@@ -88,20 +111,12 @@ public class Window extends JFrame {
 
         for (int i = 0; i < buttons4.length; i++) {
             buttons4[i].setBounds(x,y,180,100);
+            buttons4[i].setFont(font);
             add(buttons4[i]);
             x += 190;
         }
 
-        JTextArea textArea = new JTextArea();
-        JTextArea textArea1 = new JTextArea();
 
-        textArea.setBounds(10,10,760,30 );
-        textArea1.setBounds(10,50,760,30);
-        add(textArea);
-        add(textArea1);
-
-        textArea.setText("");
-        textArea1.setText("");
 
         keyAction(buttons1[0],textArea);
         keyAction(buttons1[1],textArea);
