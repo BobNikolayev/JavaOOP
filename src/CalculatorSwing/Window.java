@@ -1,8 +1,24 @@
 package CalculatorSwing;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Window extends JFrame {
+
+    public boolean plus = false;
+
+    public boolean minus = false;
+
+    public boolean multiplication = false;
+
+    public boolean fraction = false;
+
+    int result = 0;
+
+
+    public StringBuilder equationText;
+
     public Window(){
         setBounds(100,100,800,580);
 
@@ -38,7 +54,7 @@ public class Window extends JFrame {
                 {       new JButton("0"),
                         new JButton("="),
                         new JButton(":"),
-                        new JButton("CLEAR")
+                        new JButton("C")
                 };
 
         int x = 10;
@@ -76,13 +92,146 @@ public class Window extends JFrame {
             x += 190;
         }
 
-        JTextField textField = new JTextField();
+        JTextArea textArea = new JTextArea();
+        JTextArea textArea1 = new JTextArea();
 
-        textField.setBounds(10,10,780,80 );
-        textField.setColumns(100);
-        add(textField);
+        textArea.setBounds(10,10,760,30 );
+        textArea1.setBounds(10,50,760,30);
+        add(textArea);
+        add(textArea1);
+
+        textArea.setText("");
+        textArea1.setText("");
+
+        keyAction(buttons1[0],textArea);
+        keyAction(buttons1[1],textArea);
+        keyAction(buttons1[2],textArea);
+        keyAction(buttons2[0],textArea);
+        keyAction(buttons2[1],textArea);
+        keyAction(buttons2[2],textArea);
+        keyAction(buttons3[0],textArea);
+        keyAction(buttons3[1],textArea);
+        keyAction(buttons3[2],textArea);
+        keyAction(buttons4[0],textArea);
+
+        buttons1[3].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                plus = true;
+                textArea1.setText(textArea.getText());
+                textArea.setText("");
+            }
+        });
+
+        buttons2[3].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                minus = true;
+                textArea1.setText(textArea.getText());
+                textArea.setText("");
+            }
+        });
+
+        buttons3[3].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                multiplication = true;
+                textArea1.setText(textArea.getText());
+                textArea.setText("");
+            }
+        });
+
+        buttons4[2].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fraction = true;
+                textArea1.setText(textArea.getText());
+                textArea.setText("");
+            }
+        });
+
+        buttons4[3].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textArea.setText("");
+                textArea1.setText("");
+            }
+        });
+
+        buttons4[1].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(plus){
+                    int a = Integer.parseInt(textArea.getText());
+                    int b = Integer.parseInt(textArea1.getText());
+                    textArea.setText(Integer.toString(a += b));
+                    textArea1.setText("");
+                    plus = false;
+                }
+                if(minus){
+                    int a = Integer.parseInt(textArea1.getText());
+                    int b = Integer.parseInt(textArea.getText());
+                    textArea.setText(Integer.toString(a -= b));
+                    textArea1.setText("");
+                    minus = false;
+                }
+                if(multiplication){
+                    int a = Integer.parseInt(textArea.getText());
+                    int b = Integer.parseInt(textArea1.getText());
+                    textArea.setText(Integer.toString(a *=  b));
+                    textArea1.setText("");
+                    multiplication = false;
+                }
+                if(fraction){
+                    int a = Integer.parseInt(textArea1.getText());
+                    int b = Integer.parseInt(textArea.getText());
+                    if( b == 0){
+                        textArea.setText("IMPOSSIBLE SENTENCE");
+                        textArea1.setText("");
+                    }
+                    textArea.setText(Integer.toString(a / b));
+                    textArea1.setText("");
+                    fraction = false;
+                }
+
+            }
+
+        });
+
+
 
 
 
     }
+
+
+
+    public void keyAction(JButton button,JTextArea text){
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                text.append(button.getText());
+            }
+        });
+    }
+
+//    public void keys(JButton[] buttons, JTextArea text){
+//
+//        int keyNumber;
+//
+//        for (int i = 0; i < buttons.length; i++) {
+//
+//            keyNumber = Integer.parseInt(buttons[i].getText());
+//
+//            int finalKeyNumber = keyNumber -= 1;
+//            buttons[i].addActionListener(new ActionListener() {
+//                @Override
+//                public void actionPerformed(ActionEvent e) {
+//                    text.append(buttons[finalKeyNumber].getText());
+//                }
+//            });
+//        }
+//    }
+
+
 }
