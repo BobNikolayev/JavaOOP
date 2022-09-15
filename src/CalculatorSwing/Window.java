@@ -204,7 +204,9 @@ public class Window extends JFrame {
                         textArea1.setText("IMPOSSIBLE SENTENCE");
                         textArea.setText("");
                     }
-                    textArea.setText(Integer.toString(a / b));
+                    int res = 0;
+                    res = a / b;
+                    textArea.setText(Integer.toString(res));
                     textArea1.setText("");
                     fraction = false;
                 }
