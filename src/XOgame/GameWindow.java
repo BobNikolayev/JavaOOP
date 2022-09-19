@@ -8,7 +8,7 @@ public class GameWindow extends JFrame {
      static final int WINDOW_COR_X = 400;
      static final int WINDOW_COR_Y = 400;
      static final int WINDOW_HEIGHT = 505;
-     static final int WINDOW_WIDTH= 555;
+     static final int WINDOW_WIDTH= 550;
      static final String TITLE = "XOGame";
 
      private SettingsWindow settingsWindow;
@@ -24,10 +24,10 @@ public class GameWindow extends JFrame {
 
         Font font = new Font("Arial",NORMAL,15);
 
-        JButton settingsButton = new JButton("Settings");
+        JButton buttonSettings = new JButton("Settings");
         JButton buttonExit = new JButton("EXIT");
 
-        settingsButton.setBackground(Color.GREEN);
+        buttonSettings.setBackground(Color.GREEN);
         buttonExit.setBackground(Color.red);
 
         battleMap = new BattleMap(this);
@@ -40,14 +40,14 @@ public class GameWindow extends JFrame {
             System.exit(0);
         });
 
-        settingsButton.addActionListener(e->{
+        buttonSettings.addActionListener(e->{
             settingsWindow.setVisible(true);
         });
 
-        settingsButton.setFont(font);
+        buttonSettings.setFont(font);
         buttonExit.setFont(font);
 
-        panel.add(settingsButton);
+        panel.add(buttonSettings);
         panel.add(buttonExit);
 
         add(panel,BorderLayout.SOUTH);
@@ -57,5 +57,12 @@ public class GameWindow extends JFrame {
 
         setVisible(true);
 
+
     }
+
+    public void startNewGame(int gameMode, int fieldSizeX, int fieldSizeY, int dotsToWin){
+//        System.out.printf("gameMode: %d fieldSizeX: %d fieldSizeY: %d dotsToWin: %d\n",gameMode,fieldSizeX,fieldSizeY,dotsToWin);
+        battleMap.startNewGame(gameMode,fieldSizeX,fieldSizeY,dotsToWin);
+    }
+
 }

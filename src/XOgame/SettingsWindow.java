@@ -19,6 +19,9 @@ public class SettingsWindow extends JFrame {
     private JSlider sliderFieldSize = new JSlider(MIN_FIELD_SIZE,MAX_FIELD_SIZE,MIN_FIELD_SIZE);
     private JSlider sliderDotsToWin = new JSlider(MIN_FIELD_SIZE,MIN_FIELD_SIZE,MIN_FIELD_SIZE);
 
+    static final int MODE_P_VS_P = 1;
+    static final int MODE_P_VS_AI = 0;
+
 
 
     public SettingsWindow(GameWindow gameWindow) {
@@ -56,7 +59,29 @@ public class SettingsWindow extends JFrame {
             sliderDotsToWin.setMaximum(sliderFieldSize.getValue());
         });
 
-        JButton startGame = new JButton("START");
+        JButton buttonStartGame = new JButton("START");
+        buttonStartGame.setBackground(Color.green);
+        add(buttonStartGame);
+
+        buttonStartGame.addActionListener(e ->{
+            setVisible(false);
+
+            int mode;
+
+            if(radioButtonHvsAi.isSelected()){
+                mode = MODE_P_VS_AI;
+            }else {
+                mode = MODE_P_VS_P;
+            }
+
+            int fieldSize = sliderFieldSize.getValue();
+            int dotsToWin = sliderDotsToWin.getValue();
+
+            gameWindow.startNewGame(mode,fieldSize,fieldSize,dotsToWin);
+
+        });
+
+
 
         setVisible(true);
 
