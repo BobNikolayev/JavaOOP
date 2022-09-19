@@ -26,6 +26,9 @@ public class Plate {
     }
 
     public void addFood(int add){
+        if(add < 0){
+            return;
+        }
         setFood(getFood() + add);
         System.out.println("Food added " + getFood() + " ,food remaining.");
     }

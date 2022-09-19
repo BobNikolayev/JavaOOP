@@ -73,7 +73,7 @@ public class Window extends JFrame {
         JButton[] buttons4 =
                 {       new JButton("0"),
                         new JButton("="),
-                        new JButton(":"),
+                        new JButton("/"),
                         new JButton("C")
                 };
 
@@ -201,10 +201,12 @@ public class Window extends JFrame {
                     int a = Integer.parseInt(textArea1.getText());
                     int b = Integer.parseInt(textArea.getText());
                     if( b == 0){
-                        textArea.setText("IMPOSSIBLE SENTENCE");
-                        textArea1.setText("");
+                        textArea1.setText("IMPOSSIBLE SENTENCE");
+                        textArea.setText("");
                     }
-                    textArea.setText(Integer.toString(a / b));
+                    int res = 0;
+                    res = a / b;
+                    textArea.setText(Integer.toString(res));
                     textArea1.setText("");
                     fraction = false;
                 }
