@@ -51,5 +51,7 @@ public class GameWindow extends JFrame {
     }
 
     public void startNewGame(int mode, int fieldSize, int fieldSize1, int dotsToWin) {
+
     }
+
 }
