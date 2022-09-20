@@ -1,4 +1,4 @@
-package XOgame;
+package XOgameDraw;
 
 public class Main {
     public static void main(String[] args) {

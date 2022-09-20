@@ -1,4 +1,4 @@
-package XOgame;
+package XOgameDraw;
 
 import javax.swing.*;
 import java.awt.*;

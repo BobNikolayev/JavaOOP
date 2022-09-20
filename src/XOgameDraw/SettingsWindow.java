@@ -1,7 +1,6 @@
-package XOgame;
+package XOgameDraw;
 
 import javax.swing.*;
-import javax.swing.plaf.SliderUI;
 import java.awt.*;
 
 public class SettingsWindow extends JFrame {
