@@ -11,7 +11,11 @@ public class GameWindow extends JFrame {
     static final int WINDOW_WIDTH= 550;
     static final String TITLE = "XOGame";
 
+    private SettingsWindow settingsWindow;
+
     public GameWindow(){
+
+        settingsWindow = new SettingsWindow(this);
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setBounds(WINDOW_COR_X,WINDOW_COR_Y,WINDOW_WIDTH,WINDOW_HEIGHT);
@@ -34,6 +38,12 @@ public class GameWindow extends JFrame {
         add(panel,BorderLayout.SOUTH);
 
         setVisible(true);
+
+        buttonExit.addActionListener(e ->{
+            System.exit(0);
+        });
+
+
 
     }
 }

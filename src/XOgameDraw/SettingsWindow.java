@@ -3,7 +3,7 @@ package XOgameDraw;
 import javax.swing.*;
 import java.awt.*;
 
-public class SettingsWindow extends JFrame {
+class SettingsWindow extends JFrame {
 
     private GameWindow gameWindow;
 

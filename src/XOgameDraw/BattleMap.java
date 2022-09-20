@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class BattleMap extends JPanel {
+class BattleMap extends JPanel {
 
     private GameWindow gameWindow;
 

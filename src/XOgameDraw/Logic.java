@@ -1,4 +1,4 @@
 package XOgameDraw;
 
-public class Logic {
+class Logic {
 }

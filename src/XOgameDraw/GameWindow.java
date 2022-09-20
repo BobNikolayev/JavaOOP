@@ -3,7 +3,7 @@ package XOgameDraw;
 import javax.swing.*;
 import java.awt.*;
 
-public class GameWindow extends JFrame {
+class GameWindow extends JFrame {
 
      static final int WINDOW_COR_X = 400;
      static final int WINDOW_COR_Y = 400;
