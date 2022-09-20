@@ -43,7 +43,13 @@ public class GameWindow extends JFrame {
             System.exit(0);
         });
 
+        buttonSettings.addActionListener(e ->{
+            new SettingsWindow(this);
+            settingsWindow.setVisible(true);
+        });
 
+    }
 
+    public void startNewGame(int mode, int fieldSize, int fieldSize1, int dotsToWin) {
     }
 }
