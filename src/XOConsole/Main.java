@@ -26,6 +26,10 @@ public class Main {
 
            humanTurn();
            printMap();
+           if(checkWin(DOT_X)){
+               System.out.println("win");
+               break;
+           }
 
            if(isMapFull()){
                System.out.println("Draw");
@@ -34,6 +38,10 @@ public class Main {
 
            computerTurn();
            printMap();
+           if(checkWin(DOT_O)){
+               System.out.println("win");
+               break;
+           }
 
            if(isMapFull()){
                System.out.println("Draw");
@@ -130,6 +138,46 @@ public class Main {
     }
 
     public static boolean checkWin(char c){
+
+//        for (int i = 0; i < SIZE; i++) {
+//            for (int j = 0; j < SIZE - (DOTS_TO_WIN - 1); j++) {
+//                if(map[i][j] == c && map[i][j+1] == c && map[i][j+2] == c){
+//                    return true;
+//                }
+//            }
+//        }
+//        for (int i = 0; i < SIZE - (DOTS_TO_WIN - 1); i++) {
+//            for (int j = 0; j < SIZE ; j++) {
+//                if(map[i][j] == c && map[i+1][j] == c && map[i+2][j] == c){
+//                    return true;
+//                }
+//            }
+//        }
+//        for (int i = 0; i < SIZE - (DOTS_TO_WIN - 1); i++) {
+//            for (int j = 0; j < SIZE- (DOTS_TO_WIN - 1); j++) {
+//                if(map[i][j] == c && map[i+1][j + 1] == c && map[i+2][j+2] == c){
+//                    return true;
+//                }
+//            }
+//        }
+//
+//        for (int i = 0; i < SIZE - (DOTS_TO_WIN - 1); i++) {
+//            for (int j = 0; j < SIZE- (DOTS_TO_WIN - 1); j++) {
+//                if(map[i][j+2] == c && map[i+1][j + 1] == c && map[i+2][j] == c){
+//                    return true;
+//                }
+//            }
+//        }
+
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE - (DOTS_TO_WIN - 1); j++) {
+                if(map[i][j] == c && map[i][j+1] == c && map[i][j+2] == c){
+                    return true;
+                }
+            }
+        }
+
+
 
 
 
