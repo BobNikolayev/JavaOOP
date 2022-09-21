@@ -1,0 +1,4 @@
+package XOgameDraw;
+
+class Logic {
+}

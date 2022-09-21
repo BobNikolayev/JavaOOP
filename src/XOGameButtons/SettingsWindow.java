@@ -1,7 +1,6 @@
-package XOgame;
+package XOGameButtons;
 
 import javax.swing.*;
-import javax.swing.plaf.SliderUI;
 import java.awt.*;
 
 public class SettingsWindow extends JFrame {
@@ -19,12 +18,13 @@ public class SettingsWindow extends JFrame {
     private JSlider sliderFieldSize = new JSlider(MIN_FIELD_SIZE,MAX_FIELD_SIZE,MIN_FIELD_SIZE);
     private JSlider sliderDotsToWin = new JSlider(MIN_FIELD_SIZE,MIN_FIELD_SIZE,MIN_FIELD_SIZE);
 
+    static final int MODE_P_VS_P = 1;
+    static final int MODE_P_VS_AI = 0;
 
-
-    public SettingsWindow(GameWindow gameWindow) {
+    public SettingsWindow(GameWindow gameWindow){
         this.gameWindow = gameWindow;
 
-        setBounds(GameWindow.WINDOW_COR_X + 30,GameWindow.WINDOW_COR_Y + 30,GameWindow.WINDOW_WIDTH - 100,GameWindow.WINDOW_HEIGHT - 200);
+        setBounds(GameWindow.WINDOW_COR_X + 30,GameWindow.WINDOW_COR_Y +30,GameWindow.WINDOW_WIDTH,GameWindow.WINDOW_HEIGHT);
 
         setTitle("SETTINGS");
 
@@ -56,11 +56,27 @@ public class SettingsWindow extends JFrame {
             sliderDotsToWin.setMaximum(sliderFieldSize.getValue());
         });
 
-        JButton startGame = new JButton("START");
+        JButton buttonStartGame = new JButton("START");
+        buttonStartGame.setBackground(Color.green);
+        add(buttonStartGame);
 
-        setVisible(true);
+        buttonStartGame.addActionListener(e ->{
+            setVisible(false);
 
+            int mode;
 
+            if(radioButtonHvsAi.isSelected()){
+                mode = MODE_P_VS_AI;
+            }else {
+                mode = MODE_P_VS_P;
+            }
+
+            int fieldSize = sliderFieldSize.getValue();
+            int dotsToWin = sliderDotsToWin.getValue();
+
+            gameWindow.startNewGame(mode,fieldSize,fieldSize,dotsToWin);
+
+        });
 
     }
 }

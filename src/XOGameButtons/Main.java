@@ -1,7 +1,8 @@
-package XOgame;
+package XOGameButtons;
 
 public class Main {
     public static void main(String[] args) {
-        new GameWindow();
+        GameWindow gameWindow = new GameWindow();
+
     }
 }
