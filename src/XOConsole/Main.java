@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class Main {
 
-    static final int SIZE = 3;
-    static final int DOTS_TO_WIN = 3;
+    static final int SIZE = 6;
+    static final int DOTS_TO_WIN = 4;
 
     static final char DOT_X = 'X';
     static final char DOT_O = 'O';
@@ -137,8 +137,22 @@ public class Main {
         return true;
     }
 
-    public static boolean checkWin(char c){
+    static boolean checkLIne(int coordinateY, int coordinateX, int vectorY, int vectorX, char dot){
+        if(coordinateX + vectorX * (DOTS_TO_WIN - 1) > SIZE - 1 || coordinateY + vectorY * (DOTS_TO_WIN -1) > SIZE - 1 ||
+        coordinateY + vectorY * (DOTS_TO_WIN - 1) < 0){
+            return false;
+        }
 
+        for (int i = 0; i < DOTS_TO_WIN; i++) {
+            if (map[coordinateY + i * vectorY][coordinateX + i * vectorX] != dot){
+                return false;
+            }
+        }
+        return true;
+    }
+
+//    public static boolean checkWin(char c){
+//
 //        for (int i = 0; i < SIZE; i++) {
 //            for (int j = 0; j < SIZE - (DOTS_TO_WIN - 1); j++) {
 //                if(map[i][j] == c && map[i][j+1] == c && map[i][j+2] == c){
@@ -168,19 +182,31 @@ public class Main {
 //                }
 //            }
 //        }
+//
+//        for (int i = 0; i < SIZE; i++) {
+//            for (int j = 0; j < SIZE - (DOTS_TO_WIN - 1); j++) {
+//                if(map[i][j] == c && map[i][j+1] == c && map[i][j+2] == c){
+//                    return true;
+//                }
+//            }
+//        }
+//
+//
+//
+//
+//
+//        return false;
+//    }
 
+    public static boolean checkWin(char dot){
         for (int i = 0; i < SIZE; i++) {
-            for (int j = 0; j < SIZE - (DOTS_TO_WIN - 1); j++) {
-                if(map[i][j] == c && map[i][j+1] == c && map[i][j+2] == c){
+            for (int j = 0; j < SIZE; j++) {
+                if(checkLIne(i,j,0,1,dot) || checkLIne(i,j,1,0,dot) || checkLIne(i,j,1,1,dot) ||
+                checkLIne(i,j,-1,1,dot)){
                     return true;
                 }
             }
         }
-
-
-
-
-
         return false;
     }
 }
